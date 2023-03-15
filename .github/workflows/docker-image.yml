@@ -11,15 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . -t rekrutacja:latest
+    - name: Build Image
+      run: |
+        docker build . -t rekrutacja:latest
     - name: Run Image
       run: |
         docker image ls
         docker run -d -p 0.0.0.0:80:80 --name rekrutacja rekrutacja:latest 
-        docker ps
-        docker exec -t rekrutacja ls -la /usr/share/nginx/html/angular-hello-world
-        docker exec -t rekrutacja netstat -na
+      #  docker ps
+      #  docker exec -t rekrutacja ls -la /usr/share/nginx/html/angular-hello-world
+      #  docker exec -t rekrutacja netstat -na
     - name: Test Image
       run: |
         curl -L http://127.0.0.1:80/angular-hello-world
