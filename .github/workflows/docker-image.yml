@@ -18,6 +18,7 @@ jobs:
       run: |
         docker image ls
         docker run -d -p 0.0.0.0:80:80 --name rekrutacja rekrutacja:latest 
+        docker compose --help
       #  docker ps
       #  docker exec -t rekrutacja ls -la /usr/share/nginx/html/angular-hello-world
       #  docker exec -t rekrutacja netstat -na
