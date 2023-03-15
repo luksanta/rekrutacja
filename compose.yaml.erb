@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  <%= @config[:container_name] %>:
+    container_name: "<%= @config[:container_name] %>"
+    image: "<%= @config[:image_name] %>:<%= @config[:image_tag] %>"
+    ports:
+      - "<%= @config[:ports] %>"
