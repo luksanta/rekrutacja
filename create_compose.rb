@@ -28,20 +28,20 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: create_compose.rb [options]"
 
-  opts.on("-c", "--container-name", "Container Name") do |v|
-    options[:container_name] = v
+  opts.on("-c", "--container-name", "Container Name") do |c|
+    options[:container_name] = c
   end
 
-  opts.on("-t", "--image-tag", "Image tag") do |v|
-    options[:image_tag] = v
+  opts.on("-t", "--image-tag", "Image tag") do |t|
+    options[:image_tag] = t
   end
 
-  opts.on("-p", "--ports", "Exposed ports") do |v|
-    options[:ports] = v
+  opts.on("-p", "--ports", "Exposed ports") do |p|
+    options[:ports] = p
   end
 
-  opts.on("-i", "--image-name", "Image Name") do |v|
-    options[:image_name] = v
+  opts.on("-i", "--image-name", "Image Name") do |i|
+    options[:image_name] = i
   end
 end.parse!
 
