@@ -23,7 +23,7 @@ jobs:
         curl -L http://127.0.0.1:80/angular-hello-world
     - name: Test Compose
       run: |
-        ruby create_compose.rb -c "rekrutacja_2" -i "rekrutacja" -t "latest" -p "8080:80"
+        ruby create_compose.rb --container-name "rekrutacja_2" --image-name "rekrutacja" --image-tag "latest" --ports "8080:80"
         cat compose.yaml
         docker compose up -d
         docker ps
