@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  rekrutacja:
+    image: "rekrutacja:latest"
+    ports:
+      - "80:80"

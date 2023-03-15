@@ -25,5 +25,7 @@ jobs:
     - name: Test Image
       run: |
         curl -L http://127.0.0.1:80/angular-hello-world
-        
+    - name: Test Compose
+      run: |
+        docker compose up
       
