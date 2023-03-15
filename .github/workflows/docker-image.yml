@@ -28,4 +28,5 @@ jobs:
     - name: Test Compose
       run: |
         docker compose up
+        docker ps
       
