@@ -19,4 +19,7 @@ jobs:
         docker run -d --name rekrutacja rekrutacja:latest 
         docker ps
         docker exec -t rekrutacja ls -la /usr/share/nginx/html
+    - name: Test Image
+      run: |
+        curl http://127.0.0.1:80
       
