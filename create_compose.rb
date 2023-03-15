@@ -29,19 +29,19 @@ def get_params(options)
   parser = OptionParser.new do |opts|
     opts.banner = "Usage: create_compose.rb [options]"
 
-    opts.on("-c", "--container-name=CONTAINER_NAME", "Container Name") do |c|
+    opts.on("-c", "--container-name CONTAINER_NAME", "Container Name") do |c|
       options[:container_name] = c
     end
 
-    opts.on("-t", "--image-tag=TAG", "Image tag") do |t|
+    opts.on("-t", "--image-tag TAG", "Image tag") do |t|
       options[:image_tag] = t
     end
 
-    opts.on("-p", "--ports=PORTS", "Exposed ports") do |p|
+    opts.on("-p", "--ports PORTS", "Exposed ports") do |p|
       options[:ports] = p
     end
 
-    opts.on("-i", "--image-name=IMAGE_NAME", "Image Name") do |i|
+    opts.on("-i", "--image-name IMAGE_NAME", "Image Name") do |i|
       options[:image_name] = i
     end
 
