@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
 require 'json'
-require 'logger'
 require 'optparse'
 require 'erb'
 require 'fileutils'
@@ -26,7 +25,7 @@ config = {
 
 begin
     # Render main tf from template
-    logger.debug "Generating docker compose file"
+    puts "Generating docker compose file"
     template = Template.new(config)
 
     File.open("compose_new.yaml", 'w') do |f|
@@ -34,6 +33,6 @@ begin
     end
 
 rescue
-    logger.fatal 'Cannot generate template!'
+    puts 'Cannot generate template!'
     raise
 end
