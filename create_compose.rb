@@ -3,6 +3,7 @@ require 'json'
 require 'optparse'
 require 'erb'
 require 'fileutils'
+require 'logger'
 
 class Template
   def initialize config
