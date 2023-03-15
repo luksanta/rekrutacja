@@ -24,35 +24,44 @@ config = {
     :ports => "8080:80"
 }
 
-options = {}
-OptionParser.new do |opts|
-  opts.banner = "Usage: create_compose.rb [options]"
 
-  opts.on("-c", "--container-name", "Container Name") do |c|
-    options[:container_name] = c
+def get_params(options)
+  OptionParser.new do |opts|
+    opts.banner = "Usage: create_compose.rb [options]"
+
+    opts.on("-c", "--container-name", "Container Name") do |c|
+      options[:container_name] = c
+    end
+
+    opts.on("-t", "--image-tag", "Image tag") do |t|
+      options[:image_tag] = t
+    end
+
+    opts.on("-p", "--ports", "Exposed ports") do |p|
+      options[:ports] = p
+    end
+
+    opts.on("-i", "--image-name", "Image Name") do |i|
+      options[:image_name] = i
+    end
+
+    opts.on('-h', '--help', 'Displays Help') do
+      puts opts
+      exit
+    end
   end
+  parser.parse %w[--help] if ARGV.empty?
+  parser.parse!
+  options
+end
 
-  opts.on("-t", "--image-tag", "Image tag") do |t|
-    options[:image_tag] = t
-  end
-
-  opts.on("-p", "--ports", "Exposed ports") do |p|
-    options[:ports] = p
-  end
-
-  opts.on("-i", "--image-name", "Image Name") do |i|
-    options[:image_name] = i
-  end
-end.parse!
-
-puts options
-puts ARGV
 logger = Logger.new(STDOUT)
-
+parameters = {}
+parameters = get_options(parameters)
 begin
     # Render main tf from template
     logger.debug "Generating docker compose file"
-    template = Template.new(options)
+    template = Template.new(parameters)
 
     File.open("compose.yaml", 'w') do |f|
         f.write template.render('compose.yaml.erb')
