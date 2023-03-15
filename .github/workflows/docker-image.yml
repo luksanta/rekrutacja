@@ -27,5 +27,5 @@ jobs:
         docker compose up -d
         docker ps
         curl -L http://127.0.0.1:8080/angular-hello-world
-        cut compose_new.yaml
+        cat compose_new.yaml
       
