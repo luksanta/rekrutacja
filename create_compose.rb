@@ -59,9 +59,6 @@ logger = Logger.new(STDOUT)
 parameters = {}
 parameters = get_params(parameters)
 
-p parameters
-p ARGV
-
 begin
     # Render main tf from template
     logger.debug "Generating docker compose file"
