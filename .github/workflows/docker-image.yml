@@ -18,5 +18,5 @@ jobs:
         docker image ls
         docker run -d --name rekrutacja rekrutacja:latest 
         docker ps
-        docker exec -t rekrutacja 'ls -la /usr/share/nginx/html'
+        docker exec -t rekrutacja '/bin/ls -la /usr/share/nginx/html'
       
