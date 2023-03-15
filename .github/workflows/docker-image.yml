@@ -22,5 +22,5 @@ jobs:
         docker exec -t rekrutacja netstat -na
     - name: Test Image
       run: |
-        curl http://127.0.0.1:80
+        curl http://127.0.0.1:80/angular-hello-world
       
