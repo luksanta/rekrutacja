@@ -17,10 +17,10 @@ class Template
 end
 
 config = { 
-    "container_name" => "rekrutacja_2", 
-    "image_name" => "rekrutacja", 
-    "image_tag" => "latest",
-    "ports" => "8080:80"
+    :container_name => "rekrutacja_2", 
+    :image_name => "rekrutacja", 
+    :image_tag => "latest",
+    :ports => "8080:80"
 }
 
 begin
