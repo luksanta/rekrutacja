@@ -23,16 +23,39 @@ config = {
     :ports => "8080:80"
 }
 
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: create_compose.rb [options]"
+
+  opts.on("-c", "--container-name", "Container Name") do |v|
+    options[:container_name] = v
+  end
+
+  opts.on("-t", "--image-tag", "Image tag") do |v|
+    options[:image_tag] = v
+  end
+
+  opts.on("-p", "--ports", "Exposed ports") do |v|
+    options[:ports] = v
+  end
+
+  opts.on("-i", "--image-name", "Image Name") do |v|
+    options[:image_name] = v
+  end
+end.parse!
+
+logger = Logger.new(STDOUT)
+
 begin
     # Render main tf from template
-    puts "Generating docker compose file"
-    template = Template.new(config)
+    logger.debug "Generating docker compose file"
+    template = Template.new(options)
 
     File.open("compose.yaml", 'w') do |f|
         f.write template.render('compose.yaml.erb')
     end
 
 rescue
-    puts 'Cannot generate template!'
+    logger.fatal 'Cannot generate template!'
     raise
 end
