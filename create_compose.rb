@@ -45,6 +45,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
+puts options
 logger = Logger.new(STDOUT)
 
 begin
