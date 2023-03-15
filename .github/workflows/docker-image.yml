@@ -7,12 +7,16 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build .
+      run: docker build . -t rekrutacja:latest
+    - name: Run Image
+      run: |
+        docker image ls
+        docker run -d --name rekrutacja rekrutacja:latest 
+        docker ps
+        docker exec -t rekrutacja 'ls -la /usr/share/nginx/html'
+      
