@@ -28,7 +28,7 @@ begin
     puts "Generating docker compose file"
     template = Template.new(config)
 
-    File.open("compose_new.yaml", 'w') do |f|
+    File.open("compose.yaml", 'w') do |f|
         f.write template.render('compose.yaml.erb')
     end
 

@@ -1,7 +1,0 @@
-version: "3.9"
-services:
-  rekrutacja_2:
-    container_name: "rekrutacja_2"
-    image: "rekrutacja:latest"
-    ports:
-      - "8080:80"
