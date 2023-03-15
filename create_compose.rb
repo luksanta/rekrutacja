@@ -26,7 +26,7 @@ config = {
 
 
 def get_params(options)
-  OptionParser.new do |opts|
+  parser = OptionParser.new do |opts|
     opts.banner = "Usage: create_compose.rb [options]"
 
     opts.on("-c", "--container-name", "Container Name") do |c|
